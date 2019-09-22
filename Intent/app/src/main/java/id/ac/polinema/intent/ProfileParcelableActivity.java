@@ -2,8 +2,11 @@ package id.ac.polinema.intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import model.User;
 
 public class ProfileParcelableActivity extends AppCompatActivity {
     private TextView usernameText;
@@ -19,19 +22,16 @@ public class ProfileParcelableActivity extends AppCompatActivity {
         usernameText = findViewById(R.id.text_username);
         nameText = findViewById(R.id.text_name);
         ageText = findViewById(R.id.text_age);
+        Intent intent = getIntent();
+        User parcelable = intent.getParcelableExtra("user");
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
             // TODO: display value here
-            String username = getIntent().getStringExtra("username");
-            usernameText.setText(username);
-
-            String name = getIntent().getStringExtra("name");
-            nameText.setText(name);
-
-            String age = String.valueOf(extras.getInt("age"));
-            ageText.setText(age);
+            usernameText.setText(parcelable.getUsername());
+            nameText.setText(parcelable.getName());
+            ageText.setText(String.valueOf((parcelable.getAge())));
         }
     }
 }

@@ -5,9 +5,6 @@ import android.os.Parcelable;
 import android.widget.EditText;
 
 public class User implements Parcelable {
-    public static final String USERNAME_KEY = "username";
-    public static final String NAME_KEY = "name";
-    public static final String AGE_KEY = "age";
 
     private String username;
     private String name;
@@ -74,6 +71,7 @@ public class User implements Parcelable {
         }
     };
 
-    User user = new User(username, name, age);
+
+
 
 }
